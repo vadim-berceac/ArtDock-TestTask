@@ -7,7 +7,7 @@ public class Ability : ScriptableObject
     [SerializeField] private AbilityComponentConfig[] componentConfigs;
     private AbilityComponent[] _components;
 
-    public void Initialize()
+    private void Initialize()
     {
         _components = new AbilityComponent[componentConfigs.Length];
         for (var i = 0; i < componentConfigs.Length; i++)

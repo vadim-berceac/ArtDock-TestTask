@@ -8,10 +8,14 @@ public class AbilityComponentConfig
         PlayAnimation, PlaySound, AreaDamage
     } 
     public ComponentType componentType;
-    public string animationName; 
-    public AudioClip soundClip;
-    public float radius;
-    public int damage;
+    
+    [SerializeField] private string animationName;
+    
+    [SerializeField] private AudioClip soundClip; 
+    
+    [SerializeField] private float radius; 
+    [SerializeField] private int damage;
+    [SerializeField] private int colliderCount;
 
     public AbilityComponent CreateComponent()
     {
@@ -24,9 +28,10 @@ public class AbilityComponentConfig
                 return new PlaySoundComponent(soundClip);
             
             case ComponentType.AreaDamage:
-                return new AreaDamageComponent(radius, damage, 16);
+                return new AreaDamageComponent(radius, damage, colliderCount);
             
-            default: return null;
+            default:
+                return null;
         }
     }
 }

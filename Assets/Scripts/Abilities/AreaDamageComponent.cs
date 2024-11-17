@@ -1,5 +1,3 @@
-using UnityEngine;
-
 [System.Serializable] 
 public class AreaDamageComponent : AbilityComponent 
 {
@@ -16,13 +14,11 @@ public class AreaDamageComponent : AbilityComponent
     
     public override void Execute(CharacterComponentsContainer container)
     {
-        var hitColliders = new Collider[_colliderCount];
-        
-        Physics.OverlapSphereNonAlloc(container.CashedTransform.position, _radius, hitColliders);
-
-        foreach (var hitCollider in hitColliders)
+        if (container.AreaDamage == null)
         {
-            Debug.Log($"Damaged {hitCollider.name} for {_damage} damage.");
-        } 
+            return;
+        }
+        
+        container.AreaDamage.Damage(container.CashedTransform, _radius, _damage, _colliderCount);
     }
 }
