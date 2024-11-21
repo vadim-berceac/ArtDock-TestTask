@@ -21,6 +21,10 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
         var damage = property.FindPropertyRelative("damage"); 
         var colliderCount = property.FindPropertyRelative("colliderCount");
         var layerMask = property.FindPropertyRelative("layerMask");
+        var responseAbility = property.FindPropertyRelative("responseAbility");
+        
+        //particle component
+        var prefab = property.FindPropertyRelative("effectPrefab");
         
         position.height = EditorGUIUtility.singleLineHeight;
         
@@ -33,9 +37,11 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
             case AbilityComponentConfig.ComponentType.PlayAnimation:
                 EditorGUI.PropertyField(position, animationName);
                 break;
+            
             case AbilityComponentConfig.ComponentType.PlaySound: 
                 EditorGUI.PropertyField(position, soundClip); 
                 break;
+            
             case AbilityComponentConfig.ComponentType.AreaDamage:
                 EditorGUI.PropertyField(position, radius);
                 position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
@@ -44,6 +50,13 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
                 EditorGUI.PropertyField(position, colliderCount);
                 position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 EditorGUI.PropertyField(position, layerMask);
+                position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+                EditorGUI.PropertyField(position, responseAbility);
+                break;
+            
+            case AbilityComponentConfig.ComponentType.PlayParticle:
+                EditorGUI.PropertyField(position, prefab);
+                position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 break;
         }
         EditorGUI.EndProperty();
@@ -59,11 +72,17 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
             case AbilityComponentConfig.ComponentType.PlayAnimation:
                 height += (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing); 
                 break; 
+            
             case AbilityComponentConfig.ComponentType.PlaySound:
                 height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 break;
+            
             case AbilityComponentConfig.ComponentType.AreaDamage:
-                height += (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 4;
+                height += (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 5;
+                break;
+            
+            case AbilityComponentConfig.ComponentType.PlayParticle:
+                height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 break;
         } 
         return height;

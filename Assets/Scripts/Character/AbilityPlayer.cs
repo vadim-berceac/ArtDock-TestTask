@@ -5,6 +5,7 @@ using Zenject;
 [RequireComponent(typeof(CharacterComponentsContainer))]
 public class AbilityPlayer : MonoBehaviour
 {
+    [SerializeField] private bool isPlayer = false;
     [SerializeField] private CharacterComponentsContainer container;
     
     [Header("Current attack ability")]
@@ -21,7 +22,11 @@ public class AbilityPlayer : MonoBehaviour
     }
     private void Awake()
     {
-        _gameInput.AttackAction.performed += AttackActionPerformed;
+        if (!isPlayer)
+        {
+            return;
+        }
+        _gameInput.AttackAction.performed += ActionPerformed;
     }
 
     private void Update()
@@ -31,10 +36,25 @@ public class AbilityPlayer : MonoBehaviour
     
     private void OnDisable()
     {
-        _gameInput.AttackAction.performed -= AttackActionPerformed;
+        if (!isPlayer)
+        {
+            return;
+        }
+        _gameInput.AttackAction.performed -= ActionPerformed;
+    }
+
+    public void SetAndStartAbility(Ability ability)
+    {
+        this.ability = ability;
+        ActionStart();
     }
     
-    private void AttackActionPerformed(InputAction.CallbackContext obj)
+    private void ActionPerformed(InputAction.CallbackContext obj)
+    {
+        ActionStart();
+    }
+
+    private void ActionStart()
     {
         if (ability == null || _isPlayed)
         {
@@ -43,6 +63,17 @@ public class AbilityPlayer : MonoBehaviour
         
         _isPlayed = true;
         ability.Activate(container);
+    }
+    
+    private void ActionEnd()
+    {
+        if (ability == null)
+        {
+            return;
+        }
+        
+        _isPlayed = false;
+        ability.Deactivate(container);
     }
 
     private void CheckAbilityPlayed()
@@ -57,7 +88,7 @@ public class AbilityPlayer : MonoBehaviour
 
         if (_currentPlayTime > ability.Duration)
         {
-            _isPlayed = false;
+            ActionEnd();
         }
     }
 }

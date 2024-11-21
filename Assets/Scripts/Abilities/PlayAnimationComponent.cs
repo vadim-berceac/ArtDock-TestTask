@@ -8,12 +8,21 @@ public class PlayAnimationComponent : AbilityComponent
         _animationName = animationName;
     }
 
-    public override void Execute(CharacterComponentsContainer container)
+    public override void StartExecute(CharacterComponentsContainer container)
     {
         if (container.Animator == null)
         {
             return;
         }
         container.Animator.Play(_animationName);
+    }
+    
+    public override void FinishExecute(CharacterComponentsContainer container)
+    {
+        if (container.Animator == null)
+        {
+            return;
+        }
+        container.Animator.Play("Idle");
     }
 }

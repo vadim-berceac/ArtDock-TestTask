@@ -10,7 +10,7 @@ public class PlaySoundComponent : AbilityComponent
         _soundClip = soundClip;
     }
 
-    public override void Execute(CharacterComponentsContainer container)
+    public override void StartExecute(CharacterComponentsContainer container)
     {
         if (container.AudioSource == null)
         {
@@ -18,5 +18,10 @@ public class PlaySoundComponent : AbilityComponent
         }
         
         container.AudioSource.PlayOneShot(_soundClip);
+    }
+    
+    public override void FinishExecute(CharacterComponentsContainer container)
+    {
+        container.AudioSource.Stop();
     }
 }

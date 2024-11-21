@@ -5,7 +5,8 @@ public class AbilityComponentConfig
 {
     public enum ComponentType
     {
-        PlayAnimation, PlaySound, AreaDamage
+        PlayAnimation, PlaySound, AreaDamage,
+        PlayParticle
     } 
     public ComponentType componentType;
     
@@ -21,6 +22,10 @@ public class AbilityComponentConfig
     [SerializeField] private int damage;
     [SerializeField] private int colliderCount;
     [SerializeField] private LayerMask layerMask;
+    [SerializeField] private Ability responseAbility;
+    
+    //particle component
+    [SerializeField] private GameObject effectPrefab;
 
     public AbilityComponent CreateComponent()
     {
@@ -33,7 +38,10 @@ public class AbilityComponentConfig
                 return new PlaySoundComponent(soundClip);
             
             case ComponentType.AreaDamage:
-                return new AreaDamageComponent(radius, damage, colliderCount, layerMask);
+                return new AreaDamageComponent(radius, damage, colliderCount, layerMask, responseAbility);
+            
+            case ComponentType.PlayParticle:
+                return new PlayParticlesComponent(effectPrefab);
             
             default:
                 return null;

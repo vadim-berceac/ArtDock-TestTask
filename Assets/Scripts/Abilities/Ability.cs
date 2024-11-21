@@ -28,7 +28,20 @@ public class Ability : ScriptableObject
 
         foreach (var component in _components)
         {
-            component.Execute(container);
+            component.StartExecute(container);
+        }
+    }
+
+    public void Deactivate(CharacterComponentsContainer container)
+    {
+        if (_components == null)
+        {
+            return;
+        }
+        
+        foreach (var component in _components)
+        {
+            component.FinishExecute(container);
         }
     }
 }

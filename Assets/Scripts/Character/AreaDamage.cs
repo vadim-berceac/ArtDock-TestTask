@@ -3,7 +3,8 @@ using UnityEngine;
 public class AreaDamage : MonoBehaviour
 {
     // test component without logic
-    public void Damage(Transform character, float radius, float damage, int colliderCount, LayerMask layerMask)
+    public void Damage(Transform character, float radius, float damage, int colliderCount, LayerMask layerMask,
+        Ability responseAbility = null)
     {
         var hitColliders = new Collider[colliderCount];
         
@@ -24,7 +25,12 @@ public class AreaDamage : MonoBehaviour
                 {
                     return;
                 }
-                c.Animator.Play("GetHit");
+
+                if (responseAbility != null)
+                {
+                    c.AbilityPlayer.SetAndStartAbility(responseAbility);
+                }
+                
                 Debug.Log($"Damaged {hitCollider.name} for {damage} damage.");
             }
         } 
