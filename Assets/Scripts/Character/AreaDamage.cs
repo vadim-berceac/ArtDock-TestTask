@@ -3,7 +3,7 @@ using UnityEngine;
 public class AreaDamage : MonoBehaviour
 {
     // test component without logic
-    public void Damage(Transform character, float radius, float damage, int colliderCount)
+    public void Damage(Transform character, float radius, float damage, int colliderCount, LayerMask layerMask)
     {
         var hitColliders = new Collider[colliderCount];
         
@@ -16,7 +16,8 @@ public class AreaDamage : MonoBehaviour
         
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider != null && !hitCollider.transform.IsChildOf(character))
+            if (hitCollider != null && !hitCollider.transform.IsChildOf(character) 
+                                    && (layerMask.value & (1 << hitCollider.gameObject.layer)) != 0)
             {
                 Debug.Log($"Damaged {hitCollider.name} for {damage} damage.");
             }

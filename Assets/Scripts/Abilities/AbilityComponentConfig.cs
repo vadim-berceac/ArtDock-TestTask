@@ -20,6 +20,7 @@ public class AbilityComponentConfig
     [SerializeField] private float radius; 
     [SerializeField] private int damage;
     [SerializeField] private int colliderCount;
+    [SerializeField] private LayerMask layerMask;
 
     public AbilityComponent CreateComponent()
     {
@@ -32,7 +33,7 @@ public class AbilityComponentConfig
                 return new PlaySoundComponent(soundClip);
             
             case ComponentType.AreaDamage:
-                return new AreaDamageComponent(radius, damage, colliderCount);
+                return new AreaDamageComponent(radius, damage, colliderCount, layerMask);
             
             default:
                 return null;

@@ -20,6 +20,7 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
         var radius = property.FindPropertyRelative("radius"); 
         var damage = property.FindPropertyRelative("damage"); 
         var colliderCount = property.FindPropertyRelative("colliderCount");
+        var layerMask = property.FindPropertyRelative("layerMask");
         
         position.height = EditorGUIUtility.singleLineHeight;
         
@@ -41,6 +42,8 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
                 EditorGUI.PropertyField(position, damage);
                 position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 EditorGUI.PropertyField(position, colliderCount);
+                position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+                EditorGUI.PropertyField(position, layerMask);
                 break;
         }
         EditorGUI.EndProperty();
@@ -60,7 +63,7 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
                 height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 break;
             case AbilityComponentConfig.ComponentType.AreaDamage:
-                height += (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 3;
+                height += (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 4;
                 break;
         } 
         return height;
