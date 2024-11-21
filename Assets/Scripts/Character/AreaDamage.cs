@@ -19,6 +19,12 @@ public class AreaDamage : MonoBehaviour
             if (hitCollider != null && !hitCollider.transform.IsChildOf(character) 
                                     && (layerMask.value & (1 << hitCollider.gameObject.layer)) != 0)
             {
+                var c = hitCollider.GetComponentInParent<CharacterComponentsContainer>();
+                if (c == null || c.Animator == null)
+                {
+                    return;
+                }
+                c.Animator.Play("GetHit");
                 Debug.Log($"Damaged {hitCollider.name} for {damage} damage.");
             }
         } 

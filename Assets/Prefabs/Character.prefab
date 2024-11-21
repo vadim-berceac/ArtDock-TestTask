@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 151975974827103591}
   - component: {fileID: 6227236230678173549}
   - component: {fileID: 4830660495964714060}
+  - component: {fileID: 7647197306281165737}
   - component: {fileID: 142482218492630731}
   - component: {fileID: 8963948340695777889}
   - component: {fileID: 1431330064715574713}
@@ -386,6 +387,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7647197306281165737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063325235702175707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4c1571edc7fab4fb29e257b4668667, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &142482218492630731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,6 +426,7 @@ MonoBehaviour:
   animator: {fileID: 4830660495964714060}
   audioSource: {fileID: 6227236230678173549}
   areaDamage: {fileID: 142482218492630731}
+  characterParticlePlayer: {fileID: 7647197306281165737}
 --- !u!114 &1431330064715574713
 MonoBehaviour:
   m_ObjectHideFlags: 0
