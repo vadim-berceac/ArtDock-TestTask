@@ -11,7 +11,8 @@ public class AbilityPlayer : MonoBehaviour
     [SerializeField] private Ability ability;
     
     private GameInput _gameInput;
-    private bool _isAnimationPlayed;
+    private float _currentPlayTime;
+    private bool _isPlayed;
 
     [Inject]
     private void Construct(GameInput gameInput)
@@ -25,7 +26,7 @@ public class AbilityPlayer : MonoBehaviour
 
     private void Update()
     {
-        CheckAnimationPlayed();
+        CheckAbilityPlayed();
     }
     
     private void OnDisable()
@@ -35,30 +36,28 @@ public class AbilityPlayer : MonoBehaviour
     
     private void AttackActionPerformed(InputAction.CallbackContext obj)
     {
-        if (ability == null)
+        if (ability == null || _isPlayed)
         {
             return;
         }
         
-        if (_isAnimationPlayed)
-        {
-           return;
-        }
-        
-        _isAnimationPlayed = true;
+        _isPlayed = true;
         ability.Activate(container);
     }
 
-    private void CheckAnimationPlayed()
+    private void CheckAbilityPlayed()
     {
-        if (!_isAnimationPlayed)
+        if (!_isPlayed || ability == null)
         {
+            _currentPlayTime = 0;
             return;
         }
-        if (container.Animator.GetCurrentAnimatorStateInfo (0).length 
-            > container.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime)
+        
+        _currentPlayTime += Time.deltaTime;
+
+        if (_currentPlayTime > ability.Duration)
         {
-            _isAnimationPlayed = false;
+            _isPlayed = false;
         }
     }
 }

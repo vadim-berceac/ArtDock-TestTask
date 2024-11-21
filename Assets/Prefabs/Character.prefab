@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 4830660495964714060}
   - component: {fileID: 142482218492630731}
   - component: {fileID: 8963948340695777889}
+  - component: {fileID: 1431330064715574713}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -402,6 +403,20 @@ MonoBehaviour:
   animator: {fileID: 4830660495964714060}
   audioSource: {fileID: 6227236230678173549}
   areaDamage: {fileID: 142482218492630731}
+--- !u!114 &1431330064715574713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063325235702175707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51dada8ed15bb7c49b311a59c92c284b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 8963948340695777889}
+  ability: {fileID: 11400000, guid: 41cf6a824b5d33441af61696a11c6c31, type: 2}
 --- !u!1001 &4091330546203036971
 PrefabInstance:
   m_ObjectHideFlags: 0

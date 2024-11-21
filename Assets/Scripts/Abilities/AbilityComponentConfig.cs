@@ -9,10 +9,14 @@ public class AbilityComponentConfig
     } 
     public ComponentType componentType;
     
+    //animation component
     [SerializeField] private string animationName;
+    [SerializeField] private float animationDuration;
     
+    //sound component
     [SerializeField] private AudioClip soundClip; 
     
+    //area damage component
     [SerializeField] private float radius; 
     [SerializeField] private int damage;
     [SerializeField] private int colliderCount;

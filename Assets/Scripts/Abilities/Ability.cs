@@ -4,8 +4,11 @@ using UnityEngine;
 public class Ability : ScriptableObject
 {
     [SerializeField] private string abilityName;
+    [SerializeField] private float duration = 1f;
     [SerializeField] private AbilityComponentConfig[] componentConfigs;
     private AbilityComponent[] _components;
+    
+    public float Duration => duration;
 
     private void Initialize()
     {

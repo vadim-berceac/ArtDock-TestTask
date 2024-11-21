@@ -9,8 +9,14 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
         EditorGUI.BeginProperty(position, label, property); 
         
         var componentType = property.FindPropertyRelative("componentType");
+        
+        //animation component
         var animationName = property.FindPropertyRelative("animationName");
+        
+        //sound component
         var soundClip = property.FindPropertyRelative("soundClip"); 
+        
+        //area damage component
         var radius = property.FindPropertyRelative("radius"); 
         var damage = property.FindPropertyRelative("damage"); 
         var colliderCount = property.FindPropertyRelative("colliderCount");
@@ -43,14 +49,14 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        var componentType = property.FindPropertyRelative("componentType"); 
+        var componentType = property.FindPropertyRelative("componentType");
         var height = EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
         switch ((AbilityComponentConfig.ComponentType)componentType.enumValueIndex)
         {
             case AbilityComponentConfig.ComponentType.PlayAnimation:
-                height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+                height += (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing); 
                 break; 
-            case AbilityComponentConfig.ComponentType.PlaySound: 
+            case AbilityComponentConfig.ComponentType.PlaySound:
                 height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 break;
             case AbilityComponentConfig.ComponentType.AreaDamage:

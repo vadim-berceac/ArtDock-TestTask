@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: 
   componentConfigs:
-  - componentType: 2
+  - componentType: 0
     animationName: 
+    animationDuration: 0
     soundClip: {fileID: 0}
     radius: 0
     damage: 0
