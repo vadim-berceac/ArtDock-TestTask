@@ -38,4 +38,4 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 0
     responseAbility: {fileID: 0}
-    effectPrefab: {fileID: 3548588485384254792, guid: 2f9e7dc163581394da1e00b561eed65d, type: 3}
+    effectPrefab: {fileID: 7082072125475293330, guid: 2ecccbcd45a6ab744b6cbd50425801d0, type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttackBasic
   m_EditorClassIdentifier: 
   abilityName: Attack1
-  duration: 1
+  duration: 0.8
   componentConfigs:
   - componentType: 0
     animationName: Attack1

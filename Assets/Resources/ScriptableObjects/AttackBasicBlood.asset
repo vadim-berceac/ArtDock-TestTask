@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63ec966657751914fb443079c1234f84, type: 3}
-  m_Name: AttackFire
+  m_Name: AttackBasicBlood
   m_EditorClassIdentifier: 
-  abilityName: AttackFire
-  duration: 1
+  abilityName: Attack1
+  duration: 0.8
   componentConfigs:
   - componentType: 0
     animationName: Attack1
@@ -51,15 +51,3 @@ MonoBehaviour:
       m_Bits: 64
     responseAbility: {fileID: 11400000, guid: cacc2c16e1ae64a449414fc783829c76, type: 2}
     effectPrefab: {fileID: 0}
-  - componentType: 3
-    animationName: Attack1
-    animationDuration: 0
-    soundClip: {fileID: 0}
-    radius: 3
-    damage: 3
-    colliderCount: 16
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 64
-    responseAbility: {fileID: 11400000, guid: 3df471fe5e3dea0409bf38cfb32ecbef, type: 2}
-    effectPrefab: {fileID: 417761080263594737, guid: 7800b8f6b712bfe49bd663eeb3ebe1e4, type: 3}
