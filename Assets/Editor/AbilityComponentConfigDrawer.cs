@@ -20,11 +20,21 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
         var radius = property.FindPropertyRelative("radius"); 
         var damage = property.FindPropertyRelative("damage"); 
         var colliderCount = property.FindPropertyRelative("colliderCount");
+        var rotateToFirstTarget = property.FindPropertyRelative("rotateToFirstTarget");
         var layerMask = property.FindPropertyRelative("layerMask");
         var responseAbility = property.FindPropertyRelative("responseAbility");
         
         //particle component
         var prefab = property.FindPropertyRelative("effectPrefab");
+        
+        //move component
+        var speed = property.FindPropertyRelative("speed");
+        var moveDirection = property.FindPropertyRelative("moveDirection");
+        
+        //buff component
+        var increaseStrength = property.FindPropertyRelative("increaseStrength");
+        var increaseAgility = property.FindPropertyRelative("increaseAgility");
+        var increaseDefence = property.FindPropertyRelative("increaseDefence");
         
         position.height = EditorGUIUtility.singleLineHeight;
         
@@ -49,6 +59,8 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
                 position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 EditorGUI.PropertyField(position, colliderCount);
                 position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+                EditorGUI.PropertyField(position, rotateToFirstTarget);
+                position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 EditorGUI.PropertyField(position, layerMask);
                 position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 EditorGUI.PropertyField(position, responseAbility);
@@ -56,6 +68,22 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
             
             case AbilityComponentConfig.ComponentType.PlayParticle:
                 EditorGUI.PropertyField(position, prefab);
+                position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+                break;
+            
+            case AbilityComponentConfig.ComponentType.Move:
+                EditorGUI.PropertyField(position, speed);
+                position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+                EditorGUI.PropertyField(position, moveDirection);
+                position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+                break;
+            
+            case AbilityComponentConfig.ComponentType.Buff:
+                EditorGUI.PropertyField(position, increaseStrength);
+                position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+                EditorGUI.PropertyField(position, increaseAgility);
+                position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+                EditorGUI.PropertyField(position, increaseDefence);
                 position.y += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
                 break;
         }
@@ -78,11 +106,19 @@ public class AbilityComponentConfigDrawer : PropertyDrawer
                 break;
             
             case AbilityComponentConfig.ComponentType.AreaDamage:
-                height += (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 5;
+                height += (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 6;
                 break;
             
             case AbilityComponentConfig.ComponentType.PlayParticle:
                 height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
+                break;
+            
+            case AbilityComponentConfig.ComponentType.Move:
+                height += (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 2;
+                break;
+            
+            case AbilityComponentConfig.ComponentType.Buff:
+                height += (EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing) * 3;
                 break;
         } 
         return height;

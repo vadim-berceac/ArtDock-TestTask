@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ec966657751914fb443079c1234f84, type: 3}
+  m_Name: AttackWithBuff
+  m_EditorClassIdentifier: 
+  abilityName: Attack1
+  duration: 0.8
+  componentConfigs:
+  - componentType: 0
+    animationName: Attack1
+    animationDuration: 1
+    soundClip: {fileID: 0}
+    radius: 0
+    damage: 0
+    colliderCount: 0
+    rotateToFirstTarget: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    responseAbility: {fileID: 0}
+    effectPrefab: {fileID: 0}
+    speed: 0
+    moveDirection: 0
+    increaseStrength: 0
+    increaseAgility: 0
+    increaseDefence: 0
+  - componentType: 1
+    animationName: Attack1
+    animationDuration: 0
+    soundClip: {fileID: 8300000, guid: bce360c3b7d07ae4cb4890394c4c3c8f, type: 3}
+    radius: 0
+    damage: 0
+    colliderCount: 0
+    rotateToFirstTarget: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    responseAbility: {fileID: 0}
+    effectPrefab: {fileID: 0}
+    speed: 0
+    moveDirection: 0
+    increaseStrength: 0
+    increaseAgility: 0
+    increaseDefence: 0
+  - componentType: 2
+    animationName: Attack1
+    animationDuration: 0
+    soundClip: {fileID: 0}
+    radius: 3
+    damage: 3
+    colliderCount: 16
+    rotateToFirstTarget: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 64
+    responseAbility: {fileID: 11400000, guid: cacc2c16e1ae64a449414fc783829c76, type: 2}
+    effectPrefab: {fileID: 0}
+    speed: 0
+    moveDirection: 0
+    increaseStrength: 0
+    increaseAgility: 0
+    increaseDefence: 0
+  - componentType: 3
+    animationName: Attack1
+    animationDuration: 0
+    soundClip: {fileID: 0}
+    radius: 3
+    damage: 3
+    colliderCount: 16
+    rotateToFirstTarget: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 64
+    responseAbility: {fileID: 11400000, guid: cacc2c16e1ae64a449414fc783829c76, type: 2}
+    effectPrefab: {fileID: 3615044536582392526, guid: 0c240ef73969ca74bb4c08a36cc7ae2f, type: 3}
+    speed: 0
+    moveDirection: 0
+    increaseStrength: 0
+    increaseAgility: 0
+    increaseDefence: 0
+  - componentType: 5
+    animationName: Attack1
+    animationDuration: 0
+    soundClip: {fileID: 0}
+    radius: 3
+    damage: 3
+    colliderCount: 16
+    rotateToFirstTarget: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 64
+    responseAbility: {fileID: 11400000, guid: cacc2c16e1ae64a449414fc783829c76, type: 2}
+    effectPrefab: {fileID: 0}
+    speed: 0
+    moveDirection: 0
+    increaseStrength: 5
+    increaseAgility: 2
+    increaseDefence: 10

@@ -26,7 +26,7 @@ public class AbilityPlayer : MonoBehaviour
         {
             return;
         }
-        _gameInput.AttackAction.performed += ActionPerformed;
+        _gameInput.AttackAction.performed += AbilityPerformed;
     }
 
     private void Update()
@@ -40,7 +40,7 @@ public class AbilityPlayer : MonoBehaviour
         {
             return;
         }
-        _gameInput.AttackAction.performed -= ActionPerformed;
+        _gameInput.AttackAction.performed -= AbilityPerformed;
     }
 
     public void SetAndStartAbility(Ability ability)
@@ -49,7 +49,7 @@ public class AbilityPlayer : MonoBehaviour
         ActionStart();
     }
     
-    private void ActionPerformed(InputAction.CallbackContext obj)
+    private void AbilityPerformed(InputAction.CallbackContext obj)
     {
         ActionStart();
     }
@@ -65,7 +65,7 @@ public class AbilityPlayer : MonoBehaviour
         ability.Activate(container);
     }
     
-    private void ActionEnd()
+    private void AbilityEnd()
     {
         if (ability == null)
         {
@@ -88,7 +88,7 @@ public class AbilityPlayer : MonoBehaviour
 
         if (_currentPlayTime > ability.Duration)
         {
-            ActionEnd();
+            AbilityEnd();
         }
     }
 }

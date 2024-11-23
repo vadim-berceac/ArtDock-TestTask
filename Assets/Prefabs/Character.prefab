@@ -412,7 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4830660495964714060}
   audioSource: {fileID: 6227236230678173549}
-  areaDamage: {fileID: 142482218492630731}
+  damageMaker: {fileID: 142482218492630731}
   abilityPlayer: {fileID: 1431330064715574713}
 --- !u!114 &1431330064715574713
 MonoBehaviour:
